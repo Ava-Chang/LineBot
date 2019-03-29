@@ -31,7 +31,7 @@ foreach ($client->parseEvents() as $event) {
             switch ($message['type']) {
                 case 'text':
                 	$m_message = $message['text'];
-                    $foodData = array("摩斯", "麥當勞", "鐵板燒", "八方雲集", "爭鮮", "壽司郎", "燒臘", "吃土");
+                    $foodData = array("摩斯", "麥當勞", "鐵板燒", "八方雲集", "爭鮮", "壽司郎", "燒臘", "吃土", "火鍋");
                     $count = count($foodData);
                 	if($m_message == "吃")
                 	{
