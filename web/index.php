@@ -31,15 +31,14 @@ foreach ($client->parseEvents() as $event) {
             switch ($message['type']) {
                 case 'text':
                 	$m_message = $message['text'];
-                	if($m_message =="吃")
-                	{  
-                        $foodData = ['摩斯', '麥當勞'];
+                	if($m_message!="")
+                	{
                 		$client->replyMessage(array(
                         'replyToken' => $event['replyToken'],
                         'messages' => array(
                             array(
                                 'type' => 'text',
-                                'text' => $foodData
+                                'text' => '嗨'
                             )
                         )
                     	));
