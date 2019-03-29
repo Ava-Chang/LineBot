@@ -34,14 +34,13 @@ foreach ($client->parseEvents() as $event) {
                 	if($m_message == "吃")
                 	{   
                         $foodData = array("摩斯", "麥當勞", "鐵板燒", "炒飯", "炒麵", "八方雲集");
-                        $RandKey = array_rand($foodData,1);
+                        $count = count($foodData);
                 		$client->replyMessage(array(
                         'replyToken' => $event['replyToken'],
                         'messages' => array(
                             array(
                                 'type' => 'text',
-                                // 'text' => $foodData[$RandKey[0]]
-                                'text' => '收到'
+                                'text' => $foodData[rand(0,$count-1)]
                             )
                         )
                     	));
