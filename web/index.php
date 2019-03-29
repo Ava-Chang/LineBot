@@ -44,20 +44,20 @@ foreach ($client->parseEvents() as $event) {
                             )
                         )
                     	));
-                	}
-                    if($m_message == "不要")
-                    {
-                        $client->replyMessage(array(
-                        'replyToken' => $event['replyToken'],
-                        'messages' => array(
-                            array(
-                                'type' => 'text',
-                                'text' => $foodData[rand(0,$count-1)]
+                        if($m_message == "不要")
+                        {
+                            $client->replyMessage(array(
+                            'replyToken' => $event['replyToken'],
+                            'messages' => array(
+                                array(
+                                    'type' => 'text',
+                                    'text' => $foodData[rand(0,$count-1)]
+                                )
                             )
-                        )
-                        ));
-                    }
+                            ));
+                        }
                     break;
+                	}
             }
             break;
         default:
