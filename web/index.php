@@ -31,10 +31,10 @@ foreach ($client->parseEvents() as $event) {
             switch ($message['type']) {
                 case 'text':
                 	$m_message = $message['text'];
+                    $foodData = array("摩斯", "麥當勞", "鐵板燒", "八方雲集", "爭鮮", "壽司郎", "燒臘", "吃土");
+                    $count = count($foodData);
                 	if($m_message == "吃")
-                	{   
-                        $foodData = array("摩斯", "麥當勞", "鐵板燒", "八方雲集", "爭鮮", "壽司郎", "燒臘");
-                        $count = count($foodData);
+                	{
                 		$client->replyMessage(array(
                         'replyToken' => $event['replyToken'],
                         'messages' => array(
@@ -45,6 +45,18 @@ foreach ($client->parseEvents() as $event) {
                         )
                     	));
                 	}
+                    if($m_message == "不要")
+                    {
+                        $client->replyMessage(array(
+                        'replyToken' => $event['replyToken'],
+                        'messages' => array(
+                            array(
+                                'type' => 'text',
+                                'text' => $foodData[rand(0,$count-1)]
+                            )
+                        )
+                        ));
+                    }
                     break;
             }
             break;
