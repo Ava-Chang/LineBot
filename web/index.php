@@ -33,7 +33,7 @@ foreach ($client->parseEvents() as $event) {
                 	$m_message = $message['text'];
                 	if($m_message == "吃")
                 	{   
-                        $foodData = array("摩斯", "麥當勞", "鐵板燒", "炒飯", "炒麵", "八方雲集");
+                        $foodData = array("摩斯", "麥當勞", "鐵板燒", "八方雲集", "爭鮮", "壽司郎", "燒臘"));
                         $count = count($foodData);
                 		$client->replyMessage(array(
                         'replyToken' => $event['replyToken'],
