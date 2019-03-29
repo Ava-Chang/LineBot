@@ -31,7 +31,7 @@ foreach ($client->parseEvents() as $event) {
             switch ($message['type']) {
                 case 'text':
                 	$m_message = $message['text'];
-                	if($m_message!="" & $m_message == '吃')
+                	if($m_message!="" && $m_message == '吃')
                 	{   
                         $foodData = array("摩斯", "麥當勞", "鐵板燒", "炒飯", "炒麵", "八方雲集");
                         $RandKey = array_rand($foodData,1);
