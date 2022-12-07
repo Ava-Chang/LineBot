@@ -23,6 +23,13 @@ require_once('./LINEBotTiny.php');
 $channelAccessToken = getenv('LINE_CHANNEL_ACCESSTOKEN');
 $channelSecret = getenv('LINE_CHANNEL_SECRET');
 
+$foodData = [
+    '摩斯', '麥當勞', '鐵板燒', 
+    '八方雲集', '爭鮮', '壽司郎', 
+    '燒臘', '吃土', '火鍋', '水餃', 
+    '酸辣粉'
+];
+
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 foreach ($client->parseEvents() as $event) {
     switch ($event['type']) {
@@ -30,22 +37,20 @@ foreach ($client->parseEvents() as $event) {
             $message = $event['message'];
             switch ($message['type']) {
                 case 'text':
-                	$m_message = $message['text'];
-                    $foodData = array("摩斯", "麥當勞", "鐵板燒", "八方雲集", "爭鮮", "壽司郎", "燒臘", "吃土", "火鍋");
+                    $m_message = $message['text'];
                     $count = count($foodData);
-                	if($m_message == "吃")
-                	{
-                		$client->replyMessage(array(
+                    if ($m_message == "吃") {
+                        $client->replyMessage(array(
                         'replyToken' => $event['replyToken'],
                         'messages' => array(
                             array(
                                 'type' => 'text',
-                                'text' => $foodData[rand(0,$count-1)]
+                                'text' => $foodData[rand(0, $count-1)]
                             )
                         )
-                    	));
-                    break;
-                	}
+                        ));
+                        break;
+                    }
             }
             break;
         default:
